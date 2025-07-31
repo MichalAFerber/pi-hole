@@ -8,15 +8,15 @@
 # ===============================================================
 
 # Wyze allow-list
-wyze-general-api.wyzecam.com
-dms-api.wyzecam.com
-api.wyzecam.com
+*.wyze-general-api.wyzecam.com
+*.dms-api.wyzecam.com
+*.api.wyzecam.com
 
 # Alfred Camera allow-list
-alfred.camera
-support.alfred.camera
-api2.amplitude.com
+*.alfred.camera
+*.support.alfred.camera
+*.api2.amplitude.com
 
 #Google Ads
-googletagmanager.com
-googlesyndication.com
+*.googletagmanager.com
+*.googlesyndication.com
