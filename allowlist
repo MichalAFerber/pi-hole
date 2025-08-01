@@ -9,11 +9,16 @@
 
 # Wyze allow-list
 wyze.com
+api.wyzecam.com
+dms-api.wyzecam.com
+wyze-general-api.wyzecam.com
+wyze-prod-service.wyzecam.com
+wyze-prod-service-api.wyzecam.com
+wyze-prod-service-client.wyzecam.com
+wyze-upgrade.s3.amazonaws.com
 wyze-upgrade.s3.amazonaws.com
 wyze-upgrade.s3-us-west-2.amazonaws.com
-wyze-general-api.wyzecam.com
-dms-api.wyzecam.com
-api.wyzecam.com
+amazonaws.com
 
 # Alfred Camera allow-list
 alfred.camera
