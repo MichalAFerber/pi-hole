@@ -13,11 +13,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # TODO: adjust this step to however you want to build unified-hosts.txt
-      - name: Build unified-hosts.txt
+      - name: Build unified hosts file
         run: |
           mkdir -p output
-          cp allowlist/allowlist.txt output/unified-hosts.txt
+          cp allowlist output/unified-hosts.txt
 
       - name: Upload unified-hosts artifact
         uses: actions/upload-artifact@v4
