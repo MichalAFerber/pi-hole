@@ -15,6 +15,7 @@ This repository generates a **unified hosts file** and maintains **known-good al
 
 ## 📁 Repository Structure
 
+```
 pi-hole/
 ├── README.md
 ├── hosts/
@@ -26,6 +27,7 @@ pi-hole/
 │   ├── streaming/
 │   └── misc/
 └── scripts/
+```
 
 ---
 
