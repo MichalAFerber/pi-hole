@@ -1,0 +1,2 @@
+# Base blocklist
+0.0.0.0 bad.example.com

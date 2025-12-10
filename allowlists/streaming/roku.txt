@@ -1,0 +1,2 @@
+image.roku.com
+api.roku.com

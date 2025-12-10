@@ -1,0 +1,2 @@
+# Extra tracking blocks
+0.0.0.0 tracker.example.com
