@@ -1,1 +1,87 @@
-# empty list to start
+# unified hosts file for Pi-hole
+# generated: 2025-12-10T03:33:50Z
+#
+# components (hosts/*.txt, excluding unified-hosts.txt):
+#   base-hosts.txt
+#   extra-privacy.txt
+#   local-overrides.txt
+#
+# allowlists (allowlists/**/*.txt):
+#   misc/misc-allow.txt
+#   streaming/appletvplus.txt
+#   streaming/disneyplus.txt
+#   streaming/hulu.txt
+#   streaming/paramountplus.txt
+#   streaming/peacock.txt
+#   streaming/roku.txt
+
+0.0.0.0 adform.net
+0.0.0.0 adjust.com
+0.0.0.0 adnxs.com
+0.0.0.0 ads.facebook.com
+0.0.0.0 ads.mopub.com
+0.0.0.0 ads.roku.com
+0.0.0.0 ads.samsungads.com
+0.0.0.0 ads.tiktok.com
+0.0.0.0 ads.tubitv.com
+0.0.0.0 ads.twitter.com
+0.0.0.0 ads.vizio.com
+0.0.0.0 ads.yahoo.com
+0.0.0.0 adservice.google.com
+0.0.0.0 affiliate.amazon.com
+0.0.0.0 amplitude.com
+0.0.0.0 analytics.google.com
+0.0.0.0 analytics.tiktok.com
+0.0.0.0 app-measurement.com
+0.0.0.0 appsflyer.com
+0.0.0.0 branch.io
+0.0.0.0 browsermine.com
+0.0.0.0 chartboost.com
+0.0.0.0 cj.com
+0.0.0.0 cloudservices.roku.com
+0.0.0.0 coinhive.com
+0.0.0.0 connect.facebook.net
+0.0.0.0 criteo.com
+0.0.0.0 cryptoloot.pro
+0.0.0.0 doubleclick.net
+0.0.0.0 firebaseio.com
+0.0.0.0 flurry.com
+0.0.0.0 google-analytics.com
+0.0.0.0 googleadservices.com
+0.0.0.0 googlesyndication.com
+0.0.0.0 graph.facebook.com
+0.0.0.0 gsp1.apple.com
+0.0.0.0 iadsdk.apple.com
+0.0.0.0 linkshare.com
+0.0.0.0 log.byteoversea.com
+0.0.0.0 logs.roku.com
+0.0.0.0 malwaredomainlist.com
+0.0.0.0 matomo.org
+0.0.0.0 metrics.apple.com
+0.0.0.0 minero.cc
+0.0.0.0 mixpanel.com
+0.0.0.0 onesignal.com
+0.0.0.0 openx.net
+0.0.0.0 outbrain.com
+0.0.0.0 override.example.com
+0.0.0.0 partner.googleadservices.com
+0.0.0.0 pixel.facebook.com
+0.0.0.0 pubmatic.com
+0.0.0.0 pushcrew.com
+0.0.0.0 pushengage.com
+0.0.0.0 quantserve.com
+0.0.0.0 ransomwaretracker.abuse.ch
+0.0.0.0 rubiconproject.com
+0.0.0.0 s.youtube.com
+0.0.0.0 scorecardresearch.com
+0.0.0.0 segment.com
+0.0.0.0 settings-win.data.microsoft.com
+0.0.0.0 smartadserver.com
+0.0.0.0 static.ads-twitter.com
+0.0.0.0 taboola.com
+0.0.0.0 telemetry.microsoft.com
+0.0.0.0 tracker.example.com
+0.0.0.0 unityads.com
+0.0.0.0 vortex.data.microsoft.com
+0.0.0.0 watson.telemetry.microsoft.com
+0.0.0.0 xmr.pool.minergate.com
