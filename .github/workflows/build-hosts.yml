@@ -5,21 +5,34 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build unified hosts file
+      - name: Build unified-hosts.txt
         run: |
-          mkdir -p output
-          cp allowlist output/unified-hosts.txt
+          mkdir -p hosts
+          # 🔧 adjust this line to match your source file(s)
+          cp allowlist.txt hosts/unified-hosts.txt
 
-      - name: Upload unified-hosts artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: unified-hosts
-          path: output/unified-hosts.txt
+      - name: Commit updated unified-hosts.txt
+        run: |
+          # If nothing changed, bail out
+          if git diff --quiet hosts/unified-hosts.txt; then
+            echo "No changes to hosts/unified-hosts.txt"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hosts/unified-hosts.txt
+          git commit -m "chore: update unified-hosts.txt [skip ci]"
+          git push
+
