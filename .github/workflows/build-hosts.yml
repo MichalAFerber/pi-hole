@@ -10,29 +10,46 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # needed so we can push back to main
+          fetch-depth: 0
 
-      - name: Build unified hosts file
+      - name: Build unified hosts
         run: |
           mkdir -p hosts
-          # 🔧 Source file: adjust if you change the name/location
+          # 🔧 Source file: make sure this exists in the repo root
           cp allowlist.txt hosts/unified-hosts.txt
 
-      - name: Commit and push if changed
+      - name: Commit & push unified hosts if changed
         run: |
-          if [[ -n "$(git status --porcelain hosts/unified-hosts.txt)" ]]; then
-            echo "Changes detected in hosts/unified-hosts.txt, committing..."
+          # Check if hosts/unified-hosts.txt is new or modified
+          if git status --porcelain hosts/unified-hosts.txt | grep -q .; then
+            echo "Changes detected in hosts/unified-hosts.txt – committing."
+
             git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+
             git add hosts/unified-hosts.txt
             git commit -m "chore: update unified-hosts.txt [skip ci]"
             git push origin HEAD:main
           else
-            echo "No changes to unified-hosts.txt; nothing to commit."
+            echo "No changes in hosts/unified-hosts.txt – nothing to commit."
+          fi
+
+      - name: Tag release if hosts changed (optional)
+        run: |
+          # Only tag if the last commit was made by this workflow for unified-hosts
+          if git log -1 --pretty=%B | grep -q "update unified-hosts.txt"; then
+            VERSION=$(date +'%Y.%m.%d.%H%M')
+            TAG="v${VERSION}"
+            echo "Creating tag ${TAG}"
+
+            git tag -a "${TAG}" -m "Unified hosts build ${VERSION}"
+            git push origin "${TAG}"
+          else
+            echo "Last commit not a unified-hosts update; skipping tag."
           fi
