@@ -18,11 +18,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Build unified hosts
+      - name: Generate unified hosts
         run: |
-          mkdir -p hosts
-          # 🔧 Source file: make sure this exists in the repo root
-          cp allowlist.txt hosts/unified-hosts.txt
+          ./scripts/generate-unified-hosts.sh
 
       - name: Commit & push unified hosts if changed
         run: |
