@@ -1,1 +1,31 @@
-# empty list to start
+# Title: MichalAFerber/allowlist
+# This hosts file is a collection of hosts to allow in Pi-hole.
+# Date: 31 July 2025 04:03:52 (EST)
+#
+# Fetch the latest version of this file: https://raw.githubusercontent.com/MichalAFerber/pi-hole/master/allowlist
+# Project home page: https://github.com/MichalAFerber/pi-hole
+#
+# ===============================================================
+
+# Wyze allow-list
+wyze.com
+api.wyzecam.com
+dms-api.wyzecam.com
+wyze-general-api.wyzecam.com
+wyze-prod-service.wyzecam.com
+wyze-prod-service-api.wyzecam.com
+wyze-prod-service-client.wyzecam.com
+wyze-upgrade.s3.amazonaws.com
+wyze-upgrade.s3.amazonaws.com
+wyze-upgrade.s3-us-west-2.amazonaws.com
+amazonaws.com
+
+# Alfred Camera allow-list
+alfred.camera
+support.alfred.camera
+api2.amplitude.com
+
+# Google services needed for Alfred web viewer
+www.googletagmanager.com
+googletagmanager.com
+pagead2.googlesyndication.com
