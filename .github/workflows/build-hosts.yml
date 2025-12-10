@@ -1,0 +1,26 @@
+name: Build unified hosts
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # TODO: adjust this step to however you want to build unified-hosts.txt
+      - name: Build unified-hosts.txt
+        run: |
+          mkdir -p output
+          cp allowlist/allowlist.txt output/unified-hosts.txt
+
+      - name: Upload unified-hosts artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: unified-hosts
+          path: output/unified-hosts.txt
