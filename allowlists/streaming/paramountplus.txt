@@ -1,2 +1,12 @@
+# --- Paramount+ Required Domains For Streaming ---
+
 vod.pplus.paramount.tech
 7f077.v.fwmrm.net
+
+# --- Paramount+ Playback State / History Sync ---
+
+cbsinteractive.hb.omtrdc.net
+smetrics.paramountplus.com
+sb.scorecardresearch.com
+bam.nr-data.net
+js-agent.newrelic.com
