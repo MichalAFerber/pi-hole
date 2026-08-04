@@ -1,5 +1,5 @@
 # unified hosts file for Pi-hole
-# generated: 2026-08-04T21:54:45Z
+# generated: 2026-08-04T21:56:52Z
 #
 # components (hosts/*.txt, excluding unified-hosts.txt):
 #   base-hosts.txt
