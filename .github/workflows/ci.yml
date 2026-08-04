@@ -1,0 +1,36 @@
+name: ci
+
+# §4: the gate lives on the pull request. This repo deployed from main with
+# nothing checking a change first, so the deploy was the first thing to find out.
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Job name is the required-check context; the estate requires `ci`.
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate unified hosts
+        run: bash scripts/generate-unified-hosts.sh
+      - name: The generated list must not collapse
+        # Name the generated file rather than picking the largest in hosts/ —
+        # that is an input, and a generator that emitted nothing would still
+        # have looked fine. This is a small curated list, not a big blocklist,
+        # so the floor is set just high enough to catch a collapse.
+        run: |
+          f=hosts/unified-hosts.txt
+          [ -s "$f" ] || { echo "::error::$f missing or empty"; exit 1; }
+          n=$(grep -cvE '^\s*(#|$)' "$f")
+          b=$(grep -cvE '^\s*(#|$)' hosts/base-hosts.txt)
+          echo "$f has $n entries (base has $b)"
+          [ "$n" -ge 10 ] || { echo "::error::only $n entries — the generator collapsed"; exit 1; }
