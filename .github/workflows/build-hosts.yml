@@ -36,6 +36,18 @@ jobs:
             echo "No changes in hosts/unified-hosts.txt - nothing to do."
             exit 0
           fi
+          # The file carries a `# generated:` header that changes on every run.
+          # Left alone, merging a pull request re-triggers this job, which
+          # restamps the header, which opens another pull request — forever. The
+          # old direct-push flow escaped that with [skip ci]; a pull request has
+          # no such brake, so the emptiness test has to ignore the volatile line.
+          substantive=$(git diff -U0 -- hosts/unified-hosts.txt \
+            | grep -E '^[+-]' | grep -vE '^(\+\+\+|---)' | grep -vE '^[+-]# generated:' || true)
+          if [ -z "$substantive" ]; then
+            echo "Only the generated-at timestamp changed - nothing worth a pull request."
+            git checkout -- hosts/unified-hosts.txt
+            exit 0
+          fi
           echo "Changes detected in hosts/unified-hosts.txt."
           BRANCH="bot/unified-hosts-$(date +'%Y%m%d-%H%M%S')"
           git config user.name "github-actions[bot]"
