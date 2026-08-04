@@ -1,19 +1,9 @@
 # unified hosts file for Pi-hole
-# generated: 2025-12-10T03:50:46Z
+# generated: 2026-08-04T21:22:13Z
 #
 # components (hosts/*.txt, excluding unified-hosts.txt):
-#   base-hosts.txt
-#   extra-privacy.txt
-#   local-overrides.txt
 #
 # allowlists (allowlists/**/*.txt):
-#   misc/misc-allow.txt
-#   streaming/appletvplus.txt
-#   streaming/disneyplus.txt
-#   streaming/hulu.txt
-#   streaming/paramountplus.txt
-#   streaming/peacock.txt
-#   streaming/roku.txt
 
 0.0.0.0 adform.net
 0.0.0.0 adjust.com
